@@ -1,1 +1,316 @@
-select * from
+.open restaurant1.db
+.mode box
+.header on
+  drop table if exists MEMBERCARD;
+  drop table if exists CATEGORY;
+  drop table if exists RECEIPTS;
+  drop table if exists STAFF;
+  drop table if exists CUSTOMER;
+  drop table if exists MENU ;
+
+create table MEMBERCARD (
+   MEMBER_ID int ,
+   LEVEL_NAME text
+ );
+insert into MEMBERCARD values
+  (1,"bronze"),
+  (2,"silver"),
+	(3,"gold");
+
+ create table MENU (
+   MENU_ID int unique,
+   MENU_NAME text,
+   MENU_PRICE int,
+   CATEGORY_ID int
+  );
+  insert into MENU values
+    (0001,"Australian Wagyu Tenderloin",945.0,1),
+    (0002,"Truffle Risotto",235.0,1),
+    (0003,"Fettuccine Bolognese",215.0,1),
+    (0004,"Squid Egg Steamed Lemon",175.0,1),
+    (0005,"Steamed Seabass with Soy Sauce",235.0,1),
+    (0006,"Salmon Ceviche",135.0,2),
+    (0007,"Fresh Tomato Salsa",125.0,2),
+    (0008,"Beef Tartare",205.0,2),
+    (0009,"Fresh Surat Thani Oyster",295.0,2),
+    (0010,"Fresh Shrimp with Fish Sauce",195.0,2),
+    (0011,"Ice Cream Fondue",135.0,3),
+    (0012,"Chocolate Lava",105.0,3),
+    (0013,"Chocolate Toffee Caramel Cake",105.0,3),
+    (0014,"Crème Brûlée",175.0,3),
+    (0015,"Mango Sticky Rice",105.0,3),
+    (0016,"Watermelon Frappe",75.0,4),
+    (0017,"Lemonade with Mango Boba",85,4),
+    (0018,"Tropical Fruit Punch",85.0,4),
+    (0019,"Italian Soda",95.0,4),
+    (0020,"Thai Tea Cocktail",135.0,4);
+    
+create table CATEGORY (
+  CATEGORY_ID int,
+  CATEGORY_NAME text
+);
+insert into CATEGORY values
+  (1,"Main_course"),
+  (2,"Appetizer"),
+	(3,"dessert"),
+	(4,"Beverage");
+
+create table STAFF (
+  STAFF_ID int ,
+  STAFF_NAME text
+);
+insert into STAFF values
+  (01,"Beem"),
+  (02,"Boom"),
+  (03,"Bom"),
+  (04,"Bow"),
+  (05,"NOD");
+
+create table CUSTOMER (
+  CUSTOMER_ID int ,
+  CUSTOMER_NAME text,
+  COUNTRY text,
+  CUSTOMER_EMAIL text,
+  MEMBER_ID int
+);
+insert into CUSTOMER values
+  (1,"WAN","Thailand","wan1234@gmail.com",3),
+  (2,"POND","USA","pond2543@gmail.com",2),
+  (3,"PINE","USA","pine1234@gmail.com",2),
+  (4,"POR","SWITZERLAND","por1234@gmail.com",1),
+  (5,"PLA","Thailand","pla1234@gmail.com",2),
+  (6,"JIB","Thailand","jib1234@gmail.com",2),
+  (7,"EARTH","Thailand","earth1234@gmail.com",3),
+  (8,"BILL","USA","bill1234@gmail.com",3),
+  (9,"KIN","USA","kinkin1234@gmail.com",1),
+  (10,"PUMPKIN","Thailand","pumpkinkin1234@gmail.com",1);
+
+create table RECEIPTS (
+  DATE_SALE date ,
+  MENU_ID int,
+  STAFF_ID int,
+  HOLIDAY_FALG text,
+  CUSTOMER_ID int
+  -- ไปอยู่ใน table เมนู MENU_NAME text,
+  --agg UNIT_SOLD int,
+  --agg TOTAL_SALE int
+  );
+insert into RECEIPTS values
+      (20221201,0019,01,"Non-Holiday",1),
+      (20221201,0011,02,"Non-Holiday",2),
+      (20221201,0001,03,"Non-Holiday",3),
+      (20221201,0002,04,"Non-Holiday",3),
+      (20221201,0003,05,"Non-Holiday",4),
+      (20221202,0006,05,"Non-Holiday",4),
+      (20221202,0009,01,"Non-Holiday",5),
+      (20221202,0011,02,"Non-Holiday",1),
+      (20221202,0019,03,"Non-Holiday",2),
+      (20221202,0012,01,"Non-Holiday",6),
+      (20221203,0003,02,"Non-Holiday",7),
+      (20221203,0001,04,"Non-Holiday",8),
+      (20221203,0001,05,"Non-Holiday",9),
+      (20221203,0011,04,"Non-Holiday",10),
+      (20221204,0001,03,"Non-Holiday",1),
+      (20221204,0001,03,"Non-Holiday",1),
+      (20221204,0015,03,"Non-Holiday",1),
+      (20221204,0013,03,"Non-Holiday",1),
+      (20221204,0001,03,"Non-Holiday",2),
+      (20221205,0002,01,"Holiday",2),
+      (20221205,0002,01,"Holiday",2),
+      (20221205,0003,01,"Holiday",2),
+      (20221205,0004,01,"Holiday",1),
+      (20221205,0005,01,"Holiday",1),
+      (20221206,0011,01,"Non-Holiday",7),
+      (20221206,0014,01,"Non-Holiday",7),
+      (20221206,0017,01,"Non-Holiday",7),
+      (20221206,0018,01,"Non-Holiday",7),
+      (20221206,0019,05,"Non-Holiday",7),
+      (20221207,0011,04,"Non-Holiday",1),
+      (20221207,0010,03,"Non-Holiday",1),
+      (20221207,0009,01,"Non-Holiday",1),
+      (20221207,0008,02,"Non-Holiday",2),
+      (20221207,0007,02,"Non-Holiday",3),
+      (20221208,0006,02,"Non-Holiday",4),
+      (20221208,0006,02,"Non-Holiday",5),
+      (20221208,0006,04,"Non-Holiday",1),
+      (20221208,0005,03,"Non-Holiday",9),
+      (20221208,0004,01,"Non-Holiday",10),
+      (20221209,0007,01,"Non-Holiday",10),
+      (20221209,0017,01,"Non-Holiday",8),
+      (20221209,0014,05,"Non-Holiday",6),
+      (20221209,0015,05,"Non-Holiday",5),
+      (20221209,0011,05,"Non-Holiday",4),
+      (20221210,0001,05,"Holiday",1),
+      (20221210,0001,05,"Holiday",1),
+      (20221210,0001,05,"Holiday",1),
+      (20221210,0001,05,"Holiday",1),
+      (20221210,0002,05,"Holiday",1),
+      (20221211,0002,02,"Non-Holiday",4),
+      (20221211,0002,02,"Non-Holiday",3),
+      (20221211,0005,02,"Non-Holiday",1),
+      (20221211,0005,03,"Non-Holiday",1),
+      (20221211,0005,01,"Non-Holiday",7),
+      (20221212,0011,01,"Holiday",7),
+      (20221212,0010,01,"Holiday",7),
+      (20221212,0001,04,"Holiday",7),
+      (20221212,0009,04,"Holiday",5),
+      (20221212,0009,04,"Holiday",3),
+      (20221213,0009,04,"Non-Holiday",2),
+      (20221213,0009,04,"Non-Holiday",2),
+      (20221213,0012,04,"Non-Holiday",3),
+      (20221213,0014,04,"Non-Holiday",4),
+      (20221213,0012,04,"Non-Holiday",6),
+      (20221214,0015,01,"Non-Holiday",8),
+      (20221214,0013,01,"Non-Holiday",9),
+      (20221214,0013,01,"Non-Holiday",10),
+      (20221214,0001,01,"Non-Holiday",10),
+      (20221214,0001,01,"Non-Holiday",10),
+      (20221215,0001,01,"Non-Holiday",1),
+      (20221215,0002,01,"Non-Holiday",1),
+      (20221215,0003,01,"Non-Holiday",1),
+      (20221215,0003,01,"Non-Holiday",1),
+      (20221215,0006,01,"Non-Holiday",1),
+      (20221216,0008,01,"Non-Holiday",1),
+      (20221216,0010,01,"Non-Holiday",1),
+      (20221216,0009,02,"Non-Holiday",3),
+      (20221216,0010,02,"Non-Holiday",2),
+      (20221216,0011,02,"Non-Holiday",2),
+      (20221217,0012,02,"Non-Holiday",2),
+      (20221217,0007,02,"Non-Holiday",4),
+      (20221217,0006,02,"Non-Holiday",5),
+      (20221217,0004,02,"Non-Holiday",6),
+      (20221217,0002,03,"Non-Holiday",7),
+      (20221218,0001,03,"Non-Holiday",7),
+      (20221218,0001,03,"Non-Holiday",7),
+      (20221218,0001,01,"Non-Holiday",7),
+      (20221218,0012,01,"Non-Holiday",7),
+      (20221218,0011,01,"Non-Holiday",8),
+      (20221219,0002,01,"Non-Holiday",9),
+      (20221219,0002,01,"Non-Holiday",10),
+      (20221219,0003,01,"Non-Holiday",10),
+      (20221219,0003,01,"Non-Holiday",1),
+      (20221219,0001,01,"Non-Holiday",1),
+      (20221219,0005,01,"Non-Holiday",1),
+      (20221220,0011,01,"Non-Holiday",1),
+      (20221220,0011,01,"Non-Holiday",2),
+      (20221220,0016,01,"Non-Holiday",3),
+      (20221220,0018,02,"Non-Holiday",4),
+      (20221220,0001,02,"Non-Holiday",5),
+      (20221220,0001,02,"Non-Holiday",7),
+      (20221221,0001,02,"Non-Holiday",7),
+      (20221221,0001,02,"Non-Holiday",7),
+      (20221221,0002,02,"Non-Holiday",1),
+      (20221221,0002,02,"Non-Holiday",2),
+      (20221221,0002,02,"Non-Holiday",3),
+      (20221221,0002,02,"Non-Holiday",8),
+      (20221222,0012,02,"Non-Holiday",8),
+      (20221222,0001,04,"Non-Holiday",8),
+      (20221222,0001,04,"Non-Holiday",8),
+      (20221222,0002,04,"Non-Holiday",5),
+      (20221222,0003,04,"Non-Holiday",6),
+      (20221223,0004,04,"Non-Holiday",7),
+      (20221223,0004,04,"Non-Holiday",3),
+      (20221223,0001,04,"Non-Holiday",1),
+      (20221223,0001,01,"Non-Holiday",1),
+      (20221223,0001,01,"Non-Holiday",8),
+      (20221224,0001,01,"Non-Holiday",9),
+      (20221224,0006,01,"Non-Holiday",10),
+      (20221224,0007,01,"Non-Holiday",8),
+      (20221224,0008,02,"Non-Holiday",8),
+      (20221224,0001,02,"Non-Holiday",8),
+      (20221225,0001,02,"Non-Holiday",9),
+      (20221225,0008,02,"Non-Holiday",9),
+      (20221225,0001,03,"Non-Holiday",7),
+      (20221225,0001,03,"Non-Holiday",5),
+      (20221225,0001,04,"Non-Holiday",5),
+      (20221226,0011,05,"Non-Holiday",5),
+      (20221226,0012,01,"Non-Holiday",1),
+      (20221226,0013,01,"Non-Holiday",1),
+      (20221226,0001,01,"Non-Holiday",1),
+      (20221226,0001,01,"Non-Holiday",7),
+      (20221227,0001,01,"Non-Holiday",7),
+      (20221227,0001,05,"Non-Holiday",2),
+      (20221227,0001,05,"Non-Holiday",3),
+      (20221227,0002,05,"Non-Holiday",3),
+      (20221227,0002,05,"Non-Holiday",5),
+      (20221228,0005,02,"Non-Holiday",6),
+      (20221228,0006,02,"Non-Holiday",6),
+      (20221228,0006,03,"Non-Holiday",7),
+      (20221228,0006,03,"Non-Holiday",7),
+      (20221228,0006,03,"Non-Holiday",7),
+      (20221229,0006,04,"Non-Holiday",8),
+      (20221229,0001,05,"Non-Holiday",9),
+      (20221229,0020,05,"Non-Holiday",10),
+      (20221229,0020,04,"Non-Holiday",2),
+      (20221229,0011,01,"Non-Holiday",2),
+      (20221230,0012,01,"Non-Holiday",3),
+      (20221230,0010,01,"Non-Holiday",3),
+      (20221230,0009,01,"Non-Holiday",4),
+      (20221230,0008,02,"Non-Holiday",5),
+      (20221230,0007,02,"Non-Holiday",6),
+      (20221231,0006,02,"Holiday",1),
+      (20221231,0005,02,"Holiday",8),
+      (20221231,0004,03,"Holiday",7),
+      (20221231,0011,04,"Holiday",3);
+
+-- 1x WITH --
+-- 1x SUBQUERY --
+-- 1x aggregate function --
+
+-- query 1 -- Top 3 customers 
+.print "Top 3 Customer"
+select 
+RECEIPTS.customer_id,
+CUSTOMER.CUSTOMER_NAME,
+SUM(MENU.menu_price) AS TOTAL
+from RECEIPTS
+join MENU on RECEIPTS.menu_id = MENU.menu_id
+JOIN CUSTOMER ON RECEIPTS.customer_id = CUSTOMER.customer_id
+GROUP BY RECEIPTS.customer_id
+ORDER by TOTAL desc
+LIMIT 3; 
+
+-- query 2 -- MENU(items) ที่ถูกสั่งมากที่สุดใน 1 เดือน 10 อันดับ
+.print "Popular menu"
+ SELECT 
+RECEIPTS.menu_id,
+menu.menu_name,
+menu.menu_price,
+count(*) AS frequency
+from RECEIPTS
+join menu on RECEIPTS.menu_id = MENU.menu_id
+GROUP BY RECEIPTS.menu_id
+order by frequency DESC
+LIMIT 10;
+
+
+-- query 3 -- หากลุ่มลูกค้าที่เป็นลูกค้าประจำ(member:gold) ที่มาในวันหยุด เพื่อจะทำการตลาดให้โปรโมชั่นเพื่อดึงดูดลูกค้า
+.print "promotion plan"
+ with holiday_customer AS (
+select RECEIPTS.customer_id,RECEIPTS.holiday_falg
+from RECEIPTS
+where holiday_falg = "Holiday")
+, member_gold AS (
+select CUSTOMER.customer_id,CUSTOMER.customer_name,CUSTOMER.member_id
+from CUSTOMER
+where member_id =3 )
+
+select * from holiday_customer AS h
+join member_gold As m on h.customer_id = m.customer_id 
+join MEMBERCARD on m.member_id = MEMBERCARD.member_id
+group by customer_name
+order by customer_id
+;
+
+
+.print "frequency of membercard"
+-- query 4 membercard อันไหนเยอะสุด 
+select 
+customer.member_id,
+count (*) AS f
+from CUSTOMER
+group by customer.member_id
+order by f desc
+;
+
+-- ทำ query 3 ใหม่คือไม่ต้องดึงมาหมด สุดท้ายแล้วต้องไม่ซ้ำจนอ่านไม่รู้เรื่อง ถ้ายังงงให้กลับมาเรียน on demand เพราะมันละเอียดและมีหลายอันที่ในไลฟ์ไม่ได้สอน และพยายามมาใส่ค่าและดึงทุกวัน ภาษาอื่นๆก็ต่อยอดจากร้านอาหารอันนี้นี่แหละ จะได้เป็นภาพโปรเจคใหญ่มากขึ้น แล้วค่อยเอาไปเขียนลง wordpress เป็นพอร์ท ในส่วนของ db ให้ใส่เพิ่มให้มากขึ้นกว่านี้จะได้ดูเข้าใกล้ความเป็นดาต้าเบสหน่อย อันนี้มันน้อยไป ไม่ค่อยsig
