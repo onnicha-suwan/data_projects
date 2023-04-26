@@ -1,0 +1,9 @@
+SELECT 
+	 purchase.purchase_id,purchase_date,store_id,purchase_item.quantity,
+	 purchase_item.item_id ,item.brand,item.name
+from purchase
+join purchase_item on purchase.purchase_id = purchase_item.purchase_id
+join item ON purchase_item.item_id = item.item_id
+where purchase_date BETWEEN "2022-01-01" and "2022-12-01 "
+ORDER BY quantity DESC
+Limit 5;
