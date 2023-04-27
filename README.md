@@ -6,6 +6,10 @@ All my data projects in the bootcamp. There are 10 sprints as follow.
 - R Programming : https://replit.com/@ONNICHASUWAN/Paoyingchub
 - Data Tranformation
 - Data Visualization
+    - Power BI
+    - R
+    - Tableau
+    - looker
 - Essential Statistics : https://docs.google.com/spreadsheets/d/1aCXXyMbPCWgU43P51c9h3QEfZqG895H_/edit?usp=sharing&ouid=112571931040240658672&rtpof=true&sd=true
 - Essential ML 
 - Python :
