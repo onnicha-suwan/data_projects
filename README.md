@@ -2,7 +2,7 @@
 All my data projects in the bootcamp. There are 10 sprints as follow.
 
 - Google sheet : https://docs.google.com/spreadsheets/d/19zcO7TLxMhJY7UBb37UZ30T-cyThf-e2n4HAuVH7OUk/edit?usp=sharing
-- SQL https://replit.com/@ONNICHASUWAN/BootcampHomework
+- SQL 
 - R Programming
 - Data Tranformation
 - Data Visualization
