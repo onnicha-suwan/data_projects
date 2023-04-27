@@ -1,0 +1,31 @@
+# Project 1 : IMDB(name,rating)
+
+url_movie <- "https://www.imdb.com/search/title/?groups=top_100&sort=user_rating,desc"
+movie_name <- url %>% 
+  read_html() %>%
+  html_nodes("h3.lister-item-header") %>%
+  html_text2() # remove unnecessary
+
+
+rating <- url %>%
+  read_html() %>%
+  html_elements("div.ratings-imdb-rating") %>%
+  html_text2() %>%
+  as.numeric()
+
+df <- imdb_df <- data_frame(
+  movie_name,
+  rating
+)
+
+View(df)
+
+
+# Project 2:  website ,inspect and scraping
+url_news <- "https://www.ryt9.com/economy-latest"
+list_name <- url_news %>%
+  read_html() %>%
+  html_elements("a.list-title") %>%
+  html_text2()
+
+view(list_name)
