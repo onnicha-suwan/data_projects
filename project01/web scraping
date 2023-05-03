@@ -1,25 +1,33 @@
-# Project 1 : IMDB(name,rating)
+# Project 1 : IMDB(name,genre,rating)
 
-url_movie <- "https://www.imdb.com/search/title/?groups=top_100&sort=user_rating,desc"
-movie_name <- url %>% 
+library(rvest)
+library(tidyverse)
+
+url <-"https://www.imdb.com/search/title/?groups=top_100&sort=user_rating,desc"
+
+movie_name <- url %>%
   read_html() %>%
   html_nodes("h3.lister-item-header") %>%
-  html_text2() # remove unnecessary
+  html_text2()
 
 
-rating <- url %>%
+
+movie_genre <- url %>%
   read_html() %>%
-  html_elements("div.ratings-imdb-rating") %>%
+  html_nodes("span.genre") %>%
+  html_text2()
+
+ratings <- url %>%
+  read_html() %>%
+  html_nodes("div.ratings-imdb-rating") %>%
   html_text2() %>%
   as.numeric()
 
-df <- imdb_df <- data_frame(
+imdb_df <- data.frame(
   movie_name,
-  rating
+  movie_genre,
+  ratings
 )
-
-View(df)
-
 
 # Project 2:  website ,inspect and scraping
 url_news <- "https://www.ryt9.com/economy-latest"
