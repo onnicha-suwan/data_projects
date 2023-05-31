@@ -7,9 +7,9 @@ All my data projects in the bootcamp. There are 10 sprints as follow.
 - Data Tranformation : https://github.com/onnicha-suwan/data_bootcamp_projects/blob/main/Data%20Tranformation%20(R)
 - Data Visualization
     - Power BI
-    - R
+    - R : https://github.com/onnicha-suwan/data_bootcamp_projects/blob/main/Data%20Visualization%20(R)
     - Tableau
-    - looker
+    - looker : https://lookerstudio.google.com/reporting/8c0118f9-9533-4af9-a280-50cf99b6d381 (Example)
 - Essential Statistics : https://docs.google.com/spreadsheets/d/1aCXXyMbPCWgU43P51c9h3QEfZqG895H_/edit?usp=sharing&ouid=112571931040240658672&rtpof=true&sd=true
 - Essential ML 
 - Python :
