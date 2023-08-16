@@ -1,4 +1,4 @@
-# Data Science Bootcamp 07
+# Data Science Project
 All my data projects in the bootcamp. There are 10 sprints as follow.
 
 - Google sheet : https://docs.google.com/spreadsheets/d/19zcO7TLxMhJY7UBb37UZ30T-cyThf-e2n4HAuVH7OUk/edit?usp=sharing
@@ -12,8 +12,8 @@ All my data projects in the bootcamp. There are 10 sprints as follow.
     - looker : https://lookerstudio.google.com/reporting/8c0118f9-9533-4af9-a280-50cf99b6d381 (Example)
 - Essential Statistics : https://docs.google.com/spreadsheets/d/1aCXXyMbPCWgU43P51c9h3QEfZqG895H_/edit?usp=sharing&ouid=112571931040240658672&rtpof=true&sd=true
 - Essential ML 
-- Python :
+- Python : https://colab.research.google.com/drive/18MQMHuEwuhEwS9uyTrhodl1A0WV5zzRH?usp=sharing
 - Python for Data Analyst :
-- Dashboard :
+- Dashboard : 
 
-Badge : 
+Badge : https://badgr.com/public/assertions/1puYpVUVRLK468CaTfZW1w
