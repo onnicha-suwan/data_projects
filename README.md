@@ -13,7 +13,7 @@ All my data projects in the bootcamp. There are 10 sprints as follow.
 - Essential Statistics : https://docs.google.com/spreadsheets/d/1aCXXyMbPCWgU43P51c9h3QEfZqG895H_/edit?usp=sharing&ouid=112571931040240658672&rtpof=true&sd=true
 - Essential ML 
 - Python : https://colab.research.google.com/drive/18MQMHuEwuhEwS9uyTrhodl1A0WV5zzRH?usp=sharing
-- Python for Data Analyst :
+- Python for Data Analyst : https://colab.research.google.com/drive/1JQ5Lo6HlPom_M7aQdDsfokSjb4Y1RmD7?usp=sharing
 - Dashboard : 
 
 Badge : https://badgr.com/public/assertions/1puYpVUVRLK468CaTfZW1w
