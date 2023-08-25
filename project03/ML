@@ -30,9 +30,9 @@ set.seed(42)
 splitdata <- train_test_split(mtcars,0.8)
 train_data <- splitdata$train
 test_data <- splitdata$test
-# dev fuction คือจะทำไรก็แก้แค่ตรง mtcars
 
-## train ตัวหนอนคือเป็นฟังก์ชั่นของ บวกคือเหมือน,ในสมการว่าแบบมีความสัมพันธ์กันยังไง
+
+## train (function)
 model <- lm(mpg ~ hp + wt + am, data = train_data)
 
 
@@ -41,7 +41,7 @@ mpg_pred <- predict(model,newdata = test_data)
 
 #evaluate model (actual - prediction)
 # find error by using MAE , MSE , RMSE
-# โดยเฉลี่ยทายผิดไปประมาณเท่าไหร่ยิ่งค่าต่ำลงแสดงว่าแม่นยำมากขึ้น
+
 mae_metric <- function(actual, prediction) {
   abs_error <- abs(actual - prediction)
   mean(abs_error)
@@ -156,8 +156,6 @@ id <- sample(1:n,size =0.8*n)
 train_data <- df[id,]
 test_data <- df[-id,]
 
-# metric คือยึดค่าไหนให้ดีสุดสามารถกำหนดได้
-# set seed คือไม่ให้ model มันเปลี่ยนไปเปลี่ยนมา
 
 # 2. train model
 # medv = f (crim,rm,age) 
@@ -165,7 +163,7 @@ set.seed(42)
 ctrl <- trainControl(method = "cv",
                      number = 5,
                      verboseIter = TRUE)
-# grid search กำหนดค่า k ได้ tune grid ก็คือเอา k เท่ากำหนดมาทำ
+
 k_grid <- data.frame(k = c(3,5,7,9,11))
 
 knn_model <- train(medv ~ crim + rm + age,
@@ -175,7 +173,7 @@ knn_model <- train(medv ~ crim + rm + age,
                    tuneGrid = k_grid,
                    preProcess = c("center","scale"),
                    trControl = ctrl )
-## tuneLength ramdom search คือ เราหมุนหาค่า k ที่ได้ error น้อยที่สุด
+
 knn_model <- train(medv ~ crim + rm + age,
                    data = train_data,
                    method = "knn",
@@ -194,7 +192,7 @@ p <- predict(knn_model,newdata = test_data)
 
 # 4.evaluate
 RMSE(p,test_data$medv)
-## ค่า k คือมันแล้วแต่เราเลยแต่ว่าถ้าเลือกได้ถูกโมเดลก็จะทำงานได้ดี
+
 
 
 
@@ -241,7 +239,7 @@ confusionMatrix(p,test_data$diabetes,
                 mode = "prec_recall")
 
 
-#------- พวก summaryFunction มีไว้ตอนที่เราอยากคำนวณค่าอื่นที่ไม่ใช่ accu แต่ถ้าจะเอา accu ลบทิ้งได้เลย
+
 ## logistic regression
 set.seed(42)
 ctrl <- trainControl(method = "cv",
